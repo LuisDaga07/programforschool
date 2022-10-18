@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{% block title %} Base {% endblock %}</title>
+
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="https://colelplacerdeaprender-c17d6.web.app/assets/img/logo.png" type="image/x-icon">
+  <link rel="icon" href="https://colelplacerdeaprender-c17d6.web.app/assets/img/logo.png" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='index/') }}assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-medium  ">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="#" class="logo d-flex align-items-center color-danger">
+	<img src="https://colelplacerdeaprender-c17d6.web.app/assets/img/logo.png" alt="">
+	<span >Bilingual School</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+	<ul>
+	  <li class="nav-item dropdown">
+	    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	      Nuestro Colegio
+	    </a>
+	    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+	      <li><a class="dropdown-item" href="#">Misión - Visión></a></li>
+	      <li><a class="dropdown-item" href="#">Reseña Historica</a></li>
+	      <li><a class="dropdown-item" href="#">Principios</a></li>
+	      <li><a class="dropdown-item" href="#">Organigrama</a></li>
+	      <li><a class="dropdown-item" href="#">Metodologia</a></li>
+	      <li><a class="dropdown-item" href="#">Marco Legal</a></li>
+
+	    </ul>
+
+	  </li>
+	  <li><a class="nav-link scrollto" href="#about">Servicios</a></li>
+	  <li><a class="nav-link scrollto" href="#team">Galeria</a></li>
+	  <li><a class="nav-link scrollto" href="#contact">Admisiones</a></li>
+	  <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+	  <li><a class="nav-link scrollto" href="#contact">Blog</a></li>
+
+	  {% if current_user.is_active %}
+	  <li><a class="getstarted scrollto" href="{{ url_for('user_bp.index') }}">Tablero</a></li>
+	  <li><a class="getstarted scrollto" href="{{ url_for('user_bp.logout') }}">Cerrar sesión</a></li>
+	  {% else %}
+	  <li><a class="getstarted scrollto" href="{{ url_for('home_bp.login') }}">Ingresar</a></li>
+	  {% endif %}
+	</ul>
+	<i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section1 ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+	{% block contenidouno %} soy contenido uno {% endblock %}  
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+ 
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+	{% block contenidodos2 %} soy contenido dos {% endblock %}  
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+            
+              <span>Bilingual School </span>
+            </a>
+            <br>
+            <p>El colegio campestre el Placer de Aprender, es una institución que, 
+              con trabajo en equipo, solidaridad, potencializa las inteligencias múltiples 
+              construyendo conocimiento y desarrollando habilidades para la vida, con la mejor calidad 
+              académica y formativa, caracterizando la práctica cotidiana con valores, principios éticos, 
+              patrióticos, espirituales, y contribuyendo a una conciencia ecológica...</p>
+            <div class="social-links mt-3">
+              <a href="https://twitter.com/BSPAprender" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com/colegioelplacerdeaprender" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Explore</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Inicio</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Nuestro Colegio</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Servicios</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Eventos</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Contactos</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Colegio Campestre EPA</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Reseña Historica</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Misión - Visión</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Admisiones</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Organigrama</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Marco Legal</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Localizacion</h4>
+            <p>
+              Pitalito Huila - Via Guagacayo Vereda aguadulce - 500 mtrs - Código Postal 417037
+              <br><strong>Teléfono</strong> +57 312 3906740 <br>
+              <strong>Email:</strong> <strong>colelplacerdeaprender@gmail.com</strong><br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Bilingual School EPA</span></strong>. Derechos Reservados
+      </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/aos/aos.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/php-email-form/validate.js"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='index/') }}assets/js/main.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/js/slide.js"></script>
+  <script defer src="js/app.js"></script>
+
+</body>
+
+</html>

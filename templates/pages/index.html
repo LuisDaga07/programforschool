@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Colegio Campestre el Placer de Aprender</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+<link rel="shortcut icon" href="https://colelplacerdeaprender-c17d6.web.app/assets/img/logo.png" type="image/x-icon">
+<link rel="icon" href="https://colelplacerdeaprender-c17d6.web.app/assets/img/logo.png" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='index/') }}assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='index/') }}assets/css/style.css" rel="stylesheet">
+  
+</head>
+
+<body>
+ 
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-medium  ">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="#" class="logo d-flex align-items-center color-danger">
+        <img src="https://colelplacerdeaprender-c17d6.web.app/assets/img/logo.png" alt="">
+        <span >Bilingual School</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="nav-item dropdown">
+	    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Nuestro Colegio
+	    </a>
+	    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+	    <li><a class="dropdown-item" href="#">Misión - Visión></a></li>
+            <li><a class="dropdown-item" href="#">Reseña Historica</a></li>
+            <li><a class="dropdown-item" href="#">Principios</a></li>
+            <li><a class="dropdown-item" href="#">Organigrama</a></li>
+            <li><a class="dropdown-item" href="#">Metodologia</a></li>
+            <li><a class="dropdown-item" href="#">Marco Legal</a></li>
+	      
+         </ul>
+
+        </li>
+          <li><a class="nav-link scrollto" href="#about">Servicios</a></li>
+          <li><a class="nav-link scrollto" href="#team">Galeria</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Admisiones</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Blog</a></li>
+
+          {% if current_user.is_active %}
+          <li><a class="getstarted scrollto" href="{{ url_for('user_bp.index') }}">Tablero</a></li>
+          <li><a class="getstarted scrollto" href="{{ url_for('user_bp.logout') }}">Cerrar sesión</a></li>
+          {% else %}
+          <li><a class="getstarted scrollto" href="{{ url_for('home_bp.login') }}">Ingresar</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert {{ category }} text-light border-0 alert-dismissible fade show" role="alert">
+                                            {{ message }}
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+          <h1 data-aos="fade-up">Toda una vida de Conocimiento comienza aquí</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Colegio campestre El Placer de Aprender potencia las inteligencias múltiples.</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Solicitud de Cupo</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="" width="300" class="img-fluid" alt="">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{{ url_for('static', filename='index/') }}assets/img/colepa2.jpg" class="d-block w-100" alt="..." width="320" height="320">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ url_for('static', filename='index/') }}assets/img/colepa2.jpg" class="d-block w-100" alt="..." width="320" height="320">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ url_for('static', filename='index/') }}assets/img/colepa2.jpg" class="d-block w-100" alt="..." width="380" height="400">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <button type="button" class="btn btn-primary"></button>
+                    
+              </div>   
+            </div>
+          </div>
+        
+        
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h3>ACERCA DE NOSOTROS!</h3>
+              <h2>Nuestro lema "Niños felices"
+                .</h2>
+              <p>
+               Somos una institución con una trayectoria de más de 20 años, que se ha venido fortaleciendo en su metodología de enseñanza, impartiendo un aprendizaje a los estudiantes para las necesidades actuales de la sociedad, proporcionando herramientas y habilidades en la potencialización de las inteligencias múltiples, con dinámicas activas en pro del medio ambiente y el uso adecuado de las TIC. Con espacios amplios de integración personal y familiar con los proyectos ecológicos y productivos.
+              </p>
+                
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Escuela Depotiva</label>
+              </div>
+              
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Programa de Ingles</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Proyectos Ecologicos</label>
+              </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Aulas Interactivas</label>
+              </div>
+              
+        
+                
+              <div class="text-center text-lg-start">
+	      <a <li><a class="getstarted scrollto" href="{{ url_for('home_bp.login') }}">Intentar</a></li>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{{ url_for('static', filename='index/') }}assets/img/colepa4.jpeg" class="img-fluid" alt="">
+            <br>
+            <img class="" src="{{ url_for('static', filename='index/') }}assets/img/colepa5.jpeg" class="img-fluid" alt="">
+          </div>
+
+        </div>
+      </div>
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>MODELO PEDAGÓGICO</h2>
+          <p class="bi-text-right">Nuestro Modelo Pedagógico</p>
+          
+          El colegio el placer de aprender concibe el aprendizaje como un proceso mediante el<br> cual el ser humano modifica y adquiere aquellas habilidades, destrezas,<br> conocimientos, conductas o valores necesarios para su desarrollo personal, y entiende <br>que este proceso valida varios escenarios. Por eso potencializamos las inteligencias <br>múltiples
+          <br><br>
+         "Todo lo que vale la pena enseñar se puede presentar de muchas maneras diferentes.  <br>Estas formas múltiples pueden hacer uso de nuestras inteligencias múltiples". <br>Gardner.
+          
+          
+          
+        </header>
+
+        <div class="row gy-2">
+
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename='index/') }}assets/img/" class="img-fluid" alt="" width="400">
+                <div class="social">
+                  <a href="https://twitter.com/BSPAprender"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/colegioelplacerdeaprender"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-github"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4></h4>
+                <span></span>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="member-img">
+                <img src="{{ url_for('static', filename='index/') }}assets/img/" class="img-fluid" alt="" width="265">
+                <div class="social">
+                  <a href="https://twitter.com/Manu_101110"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/ManuelOrtegaEJ/"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/manuelortegajuvinao/"><i class="bi bi-instagram"></i></a>
+                  <a href="https://github.com/Manuelortegaj11"><i class="bi bi-github"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4></h4>
+                <span></span>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Team Section -->
+   
+    <section >
+      <section class="slider">
+        <div class="slider_container container cont">
+          <img src="{{ url_for('static', filename='index/') }}assets/leftarrow.svg" class="slider_arrow" id="before">
+          
+          
+          <section class="slider_body slider_body--show" data-id="1">
+            <div class="slider_text"><h2 class="subtitle"> Intrapersonal</h2>
+              <p class="reviw">
+                Capacidad para conocer los propios sentimientos, pensamientos u objetivos,<br> 
+                tendencia a reflexionar y actuar en<br> consecuencia.
+              </p></div>
+
+            <fugure class="slider_picture">
+              <img src="{{ url_for('static', filename='index/') }}assets/img/intrapersonal.png">
+            </figure>
+           </section>
+          
+           <section class="slider_body slider_body--show" data-id="2">
+            <div class="slider_text"><h2 class="subtitle"> Musical</h2>
+              <p class="reviw">
+                Capacidad para conocer los propios sentimientos, pensamientos u objetivos,<br> 
+                tendencia a reflexionar y actuar en<br> consecuencia.
+              </p></div>
+            <fugure class="slider_picture">
+              <img src="{{ url_for('static', filename='index/') }}assets/img/musical.png">
+            </figure>
+          </section>
+
+          <section class="slider_body slider_body--show" data-id="3">
+            <div class="slider_text"><h2 class="subtitle"> Logica</h2>
+              <p class="reviw">
+                Capacidad para conocer los propios sentimientos, pensamientos u objetivos,<br> 
+                tendencia a reflexionar y actuar en<br> consecuencia.
+              </p></div>
+            <fugure class="slider_picture">
+              <img src="{{ url_for('static', filename='index/') }}assets/img/logica.png">
+            </figure>
+          </section>
+
+          <section class="slider_body slider_body--show" data-id="4">
+            <div class="slider_text"><h2 class="subtitle"> Kinestesico</h2>
+              <p class="reviw">
+                Capacidad para conocer los propios sentimientos, pensamientos u objetivos,<br> 
+                tendencia a reflexionar y actuar en<br> consecuencia.
+              </p></div>
+            <fugure class="slider_picture">
+              <img src="{{ url_for('static', filename='index/') }}assets/img/kinestico.png">
+            </figure>
+          </section>
+
+          <section class="slider_body slider_body--show " data-id="5">
+            <div class="slider_text"><h2 class="subtitle"> Naturalista</h2>
+              <p class="reviw">
+                Capacidad para conocer los propios sentimientos, pensamientos u objetivos,<br> 
+                tendencia a reflexionar y actuar en<br> consecuencia.
+              </p></div>
+            <fugure class="slider_picture">
+              <img src="{{ url_for('static', filename='index/') }}assets/img/natural.png">
+            </figure>
+          </section>
+
+          <section class="slider_body slider_body--show" data-id="6">
+            <div class="slider_text"><h2 class="subtitle"> Linguistica</h2>
+              <p class="reviw">
+                Capacidad para conocer los propios sentimientos, pensamientos u objetivos,<br> 
+                tendencia a reflexionar y actuar en<br> consecuencia.
+              </p></div>
+            <fugure class="slider_picture">
+              <img src="{{ url_for('static', filename='index/') }}assets/img/linguistico.png">
+            </figure>
+          </section>
+
+          <section class="slider_body slider_body--show" data-id="7">
+            <div class="slider_text"><h2 class="subtitle"> Visual</h2>
+              <p class="reviw">
+                Capacidad para conocer los propios sentimientos, pensamientos u objetivos,<br> 
+                tendencia a reflexionar y actuar en<br> consecuencia.
+              </p></div>
+            <fugure class="slider_picture">
+              <img src="{{ url_for('static', filename='index/') }}assets/img/visual.png">
+            </figure>
+          </section>
+          
+           <img src="{{ url_for('static', filename='index/') }}/rightarrow.svg" class="slider_arrow" id="next">
+        </div>
+      </section>
+  
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+            
+              <span>Bilingual School </span>
+            </a>
+            <br>
+            <p>El colegio campestre el Placer de Aprender, es una institución que, 
+              con trabajo en equipo, solidaridad, potencializa las inteligencias múltiples 
+              construyendo conocimiento y desarrollando habilidades para la vida, con la mejor calidad 
+              académica y formativa, caracterizando la práctica cotidiana con valores, principios éticos, 
+              patrióticos, espirituales, y contribuyendo a una conciencia ecológica...</p>
+            <div class="social-links mt-3">
+              <a href="https://twitter.com/BSPAprender" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com/colegioelplacerdeaprender" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Explore</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Inicio</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Nuestro Colegio</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Servicios</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Eventos</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Contactos</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Colegio Campestre EPA</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Reseña Historica</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Misión - Visión</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Admisiones</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Organigrama</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Marco Legal</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Localizacion</h4>
+            <p>
+              Pitalito Huila - Via Guagacayo Vereda aguadulce - 500 mtrs - Código Postal 417037
+              <br><strong>Teléfono</strong> +57 312 3906740 <br>
+              <strong>Email:</strong> <strong>colelplacerdeaprender@gmail.com</strong><br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Bilingual School EPA</span></strong>. Derechos Reservados
+      </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/aos/aos.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/vendor/php-email-form/validate.js"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='index/') }}assets/js/main.js"></script>
+  <script src="{{ url_for('static', filename='index/') }}assets/js/sliders.js"></script>
+  <script defer src="js/app.js"></script>
+
+</body>
+
+</html>
